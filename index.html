@@ -59,7 +59,7 @@
   <main class="card">
     <section id="s1" class="screen active">
       <h1 class="center">🎉🎂 Happy Birthday, <span id="who">Alice</span>! 🎂🎉</h1>
-      <p class="center muted">We will make three wishes. For the third one, just think about it silently and press Enter.</p>
+      <p class="center muted">We will make three wishes. For the third one, just think about it silently for a moment...</p>
       <div class="actions">
         <button id="start">Start</button>
       </div>
@@ -86,7 +86,7 @@
     <section id="s4" class="screen">
       <h1 class="center">Third wish (silent)</h1>
       <p class="center">Close your eyes, think of your third wish in your heart…</p>
-      <p class="center muted">When you are ready, press <strong>Enter</strong> to continue.</p>
+      <p class="center muted">Please wait a few seconds…</p>
     </section>
 
     <section id="s5" class="screen">
@@ -160,8 +160,7 @@
     next2.addEventListener('click',()=>{show(s3);setTimeout(()=>wish2.focus(),50);});
     wish2.addEventListener('input',()=>next3.disabled=!wish2.value.trim());
     wish2.addEventListener('keydown',e=>{if(e.key==='Enter'&&wish2.value.trim())next3.click();});
-    next3.addEventListener('click',()=>show(s4));
-    document.addEventListener('keydown',e=>{if(s4.classList.contains('active')&&e.key==='Enter')show(s5);});
+    next3.addEventListener('click',()=>{show(s4);setTimeout(()=>show(s5),3000);});
   </script>
 </body>
 </html>
