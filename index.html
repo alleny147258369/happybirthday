@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Alice! 🌼</title>
+  <style>
+    :root{
+      --bg:#fff8ee;
+      --ink:#1f2937;
+      --accent:#f59e0b;
+      --petal:#f7d21e;
+      --center:#ffd54a;
+      --stem:#2e7d32;
+      --leaf:#4caf50;
+      --leaf2:#81c784;
+      --btn:#111827;
+      --btnText:#fff;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "Helvetica Neue", Arial;
+      color:var(--ink); background:var(--bg);
+      display:grid; place-items:center;
+    }
+    .card{
+      width:min(720px, 92vw);
+      background:#fff; border-radius:18px; padding:28px 24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      transition:transform .3s ease, opacity .3s ease;
+    }
+    h1{margin:.2rem 0 1rem; font-size:clamp(1.6rem, 2.5vw + 1rem, 2.3rem)}
+    p{line-height:1.6}
+    .muted{color:#6b7280}
+    .center{text-align:center}
+    .actions{display:flex; gap:12px; justify-content:center; margin-top:16px}
+    button, .btn{
+      appearance:none; border:0; border-radius:12px; padding:12px 18px; font-weight:600;
+      background:var(--btn); color:var(--btnText); cursor:pointer;
+      box-shadow:0 6px 16px rgba(0,0,0,.15);
+    }
+    button:disabled{opacity:.6; cursor:not-allowed}
+    input[type="text"]{
+      width:100%; padding:12px 14px; border:2px solid #e5e7eb; border-radius:12px; font-size:1rem;
+      outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    input[type="text"]:focus{border-color:#93c5fd; box-shadow:0 0 0 4px rgba(59,130,246,.15)}
+    .screen{display:none}
+    .screen.active{display:block}
+    .flowerWrap{display:grid; place-items:center; margin:18px 0}
+    svg{max-width:min(440px, 80vw)}
+    .fade-in{animation:fade .7s ease both}
+    @keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+    footer{margin-top:8px; text-align:center; font-size:.9rem; color:#9ca3af}
+    .blessing{font-style:italic; margin-top:8px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <section id="s1" class="screen active">
+      <h1 class="center">🎉🎂 Happy Birthday, <span id="who">Alice</span>! 🎂🎉</h1>
+      <p class="center muted">We will make three wishes. For the third one, just think about it silently and press Enter.</p>
+      <div class="actions">
+        <button id="start">Start</button>
+      </div>
+    </section>
+
+    <section id="s2" class="screen">
+      <h1 class="center">First wish</h1>
+      <p>Make your first wish and press <strong>Enter</strong>:</p>
+      <input id="wish1" type="text" placeholder="Type your first wish here…" autocomplete="off" />
+      <div class="actions">
+        <button id="next2" disabled>Next</button>
+      </div>
+    </section>
+
+    <section id="s3" class="screen">
+      <h1 class="center">Second wish</h1>
+      <p>Make your second wish and press <strong>Enter</strong>:</p>
+      <input id="wish2" type="text" placeholder="Type your second wish here…" autocomplete="off" />
+      <div class="actions">
+        <button id="next3" disabled>Next</button>
+      </div>
+    </section>
+
+    <section id="s4" class="screen">
+      <h1 class="center">Third wish (silent)</h1>
+      <p class="center">Close your eyes, think of your third wish in your heart…</p>
+      <p class="center muted">When you are ready, press <strong>Enter</strong> to continue.</p>
+    </section>
+
+    <section id="s5" class="screen">
+      <h1 class="center">🎈🎂🎉 Happy Birthday! 🎉🎂🎈</h1>
+      <div class="flowerWrap fade-in" aria-label="flower">
+        <svg viewBox="0 0 300 420" role="img" aria-labelledby="t d">
+          <title id="t">Cartoon Flower</title>
+          <desc id="d">Yellow five-petal flower with green stem and two oval leaves</desc>
+          <defs>
+            <radialGradient id="gCenter" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#ffe27a"/>
+              <stop offset="100%" stop-color="#ffc107"/>
+            </radialGradient>
+            <linearGradient id="gLeaf" x1="0" x2="1" y1="0.2" y2="0.8">
+              <stop offset="0%" stop-color="#a7e08a"/>
+              <stop offset="100%" stop-color="#3fa34d"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="143" y="160" width="14" height="170" rx="7" fill="var(--stem)" stroke="#000" stroke-width="6" />
+
+          <g transform="translate(150,260)">
+            <g transform="rotate(-18)">
+              <ellipse cx="-55" cy="20" rx="65" ry="40" fill="url(#gLeaf)" stroke="#000" stroke-width="6"/>
+              <path d="M-110,20 L0,20" stroke="#0f5e2b" stroke-width="4" stroke-linecap="round"/>
+              <path d="M-90,10 C-70,15 -50,25 -30,32" stroke="#0f5e2b" stroke-width="3" fill="none" opacity=".7"/>
+              <path d="M-88,28 C-68,30 -48,30 -28,26" stroke="#0f5e2b" stroke-width="3" fill="none" opacity=".6"/>
+            </g>
+            <g transform="rotate(18)">
+              <ellipse cx="55" cy="20" rx="65" ry="40" fill="url(#gLeaf)" stroke="#000" stroke-width="6"/>
+              <path d="M0,20 L110,20" stroke="#0f5e2b" stroke-width="4" stroke-linecap="round"/>
+              <path d="M30,32 C50,25 70,15 90,10" stroke="#0f5e2b" stroke-width="3" fill="none" opacity=".7"/>
+              <path d="M28,26 C48,30 68,30 88,28" stroke="#0f5e2b" stroke-width="3" fill="none" opacity=".6"/>
+            </g>
+          </g>
+
+          <g transform="translate(150,130)">
+            <g fill="var(--petal)" stroke="#000" stroke-width="6">
+              <ellipse rx="34" ry="56" transform="translate(0,-70) rotate(0)"/>
+              <ellipse rx="34" ry="56" transform="translate(60,-20) rotate(72)"/>
+              <ellipse rx="34" ry="56" transform="translate(37,55) rotate(144)"/>
+              <ellipse rx="34" ry="56" transform="translate(-37,55) rotate(216)"/>
+              <ellipse rx="34" ry="56" transform="translate(-60,-20) rotate(288)"/>
+            </g>
+            <circle r="30" fill="url(#gCenter)" stroke="#000" stroke-width="6"/>
+          </g>
+        </svg>
+      </div>
+      <p class="center blessing">wish all of your dream come true</p>
+      <p class="center blessing">~ May your days bloom like this flower ~</p>
+      <footer>made by Allen</footer>
+    </section>
+  </main>
+
+  <script>
+    const s1=document.getElementById('s1');
+    const s2=document.getElementById('s2');
+    const s3=document.getElementById('s3');
+    const s4=document.getElementById('s4');
+    const s5=document.getElementById('s5');
+    const start=document.getElementById('start');
+    const wish1=document.getElementById('wish1');
+    const wish2=document.getElementById('wish2');
+    const next2=document.getElementById('next2');
+    const next3=document.getElementById('next3');
+
+    function show(el){[s1,s2,s3,s4,s5].forEach(x=>x.classList.remove('active')); el.classList.add('active');}
+    start.addEventListener('click',()=>{show(s2);wish1.focus();});
+    wish1.addEventListener('input',()=>next2.disabled=!wish1.value.trim());
+    wish1.addEventListener('keydown',e=>{if(e.key==='Enter'&&wish1.value.trim())next2.click();});
+    next2.addEventListener('click',()=>{show(s3);setTimeout(()=>wish2.focus(),50);});
+    wish2.addEventListener('input',()=>next3.disabled=!wish2.value.trim());
+    wish2.addEventListener('keydown',e=>{if(e.key==='Enter'&&wish2.value.trim())next3.click();});
+    next3.addEventListener('click',()=>show(s4));
+    document.addEventListener('keydown',e=>{if(s4.classList.contains('active')&&e.key==='Enter')show(s5);});
+  </script>
+</body>
+</html>
